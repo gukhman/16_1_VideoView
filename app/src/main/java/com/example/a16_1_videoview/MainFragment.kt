@@ -115,41 +115,41 @@ class MainFragment : Fragment() {
         binding.videoView.start()
     }
 
-    // Метод для включения/выключения полноэкранного режима
+    // полноэкранный режим
     private fun toggleFullscreen() {
-        isFullscreen = !isFullscreen // Переключаем флаг полноэкранного режима
+        isFullscreen = !isFullscreen
         if (isFullscreen) {
             // Включение полноэкранного режима
             requireActivity().window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN
                     or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                     or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
-            requireActivity().actionBar?.hide() // Скрываем ActionBar
-            binding.buttonSelectVideo.visibility = View.GONE // Скрываем кнопку выбора видео
+            requireActivity().actionBar?.hide()
+            binding.buttonSelectVideo.visibility = View.GONE
             binding.videoView.layoutParams.height =
-                ViewGroup.LayoutParams.MATCH_PARENT // Растягиваем VideoView на весь экран
+                ViewGroup.LayoutParams.MATCH_PARENT
         } else {
             // Возвращение в обычный режим
             requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
-            requireActivity().actionBar?.show() // Показываем ActionBar
-            binding.buttonSelectVideo.visibility = View.VISIBLE // Показываем кнопку выбора видео
+            requireActivity().actionBar?.show()
+            binding.buttonSelectVideo.visibility = View.VISIBLE
             binding.videoView.layoutParams.height =
-                ViewGroup.LayoutParams.WRAP_CONTENT // Устанавливаем стандартный размер для VideoView
+                ViewGroup.LayoutParams.WRAP_CONTENT
         }
-        binding.videoView.requestLayout() // Перерисовываем VideoView для применения изменений
+        binding.videoView.requestLayout()
     }
 
-    // Сохранение состояния (URI видео и текущая позиция) при повороте экрана
+    // Сохранение состояния
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelable("videoUri", videoUri) // Сохраняем URI выбранного видео
+        outState.putParcelable("videoUri", videoUri)
         outState.putInt(
             "currentPosition",
             binding.videoView.currentPosition
-        ) // Сохраняем текущую позицию воспроизведения
+        )
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null // Освобождаем привязку, чтобы избежать утечек памяти
+        _binding = null
     }
 }
