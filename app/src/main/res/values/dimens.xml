@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="defMargin">16dp</dimen>
+    <dimen name="bigMargin">150dp</dimen>
+    <dimen name="textSize">20sp</dimen>
+    <dimen name="bigTextSize">26sp</dimen>
+    <dimen name="minWidthET">200sp</dimen>
+    <dimen name="minHeightET">48sp</dimen>
+    <dimen name="defPadding">8dp</dimen>
+    <dimen name="bigPadding">32dp</dimen>
+    <dimen name="smallTextSize">14sp</dimen>
+    <dimen name="imageHeight">150dp</dimen>
+    <dimen name="layout_margin">8dp</dimen>
+</resources>
